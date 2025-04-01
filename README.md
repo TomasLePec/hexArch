@@ -1,31 +1,31 @@
 # Empresas API
 
-API REST para la gestión de empresas y transferencias utilizando arquitectura hexagonal.
+Challenge para puesto backend. API REST para la gestión de empresas y transferencias utilizando arquitectura hexagonal.
 
 ## Descripción
 
-Este proyecto implementa una API REST con arquitectura hexagonal (también conocida como puertos y adaptadores) para gestionar empresas y sus transferencias. La aplicación permite:
+Este proyecto implementa una API REST con arquitectura hexagonal para gestionar empresas y sus transferencias. La aplicación permite:
 
-- Registrar nuevas empresas (adhesión)
+- Registrar nuevas empresas
 - Consultar empresas que se adhirieron en el último mes
 - Consultar empresas que realizaron transferencias en el último mes
 
-## Arquitectura Hexagonal
+## Arquitectura
 
-La arquitectura hexagonal (o de puertos y adaptadores) permite separar claramente las responsabilidades y hacer que la lógica de negocio sea independiente de los detalles de implementación externos.
+El proyecto esta dividido de la siguiente manera.
 
 ### Capas:
 
-1. **Dominio**: Contiene las entidades de negocio y los puertos (interfaces de repositorios).
+1. **Dominio**:
    - Entidades: Company, Transfer
    - Puertos: CompanyRepository, TransferRepository
 
-2. **Aplicación**: Contiene los casos de uso que implementan la lógica de negocio.
+2. **Aplicación**:
    - CreateCompanyUseCase
    - GetCompaniesJoinedLastMonthUseCase
    - GetCompaniesWithTransfersLastMonthUseCase
 
-3. **Infraestructura**: Contiene los adaptadores (implementaciones concretas).
+3. **Infraestructura**:
    - Adaptadores de persistencia: MongoDBCompanyRepository
    - Adaptadores de entrada: CompanyController, rutas Express
 
